@@ -81,11 +81,14 @@ WSGI_APPLICATION = 'midas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2'
+        #  'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+DATABASES['default']=dj_database_url.config(default='postgres://eqxqnhjqnlnkwl:316b9a993cca5dd073e1456f33426c01b75f3a002eb2a142690286a85812b9b0@ec2-3-233-43-103.compute-1.amazonaws.com:5432/d9dht3vgo3pb17')
+db_from_env=dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
