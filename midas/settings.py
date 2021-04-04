@@ -136,3 +136,5 @@ STATIC_FILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = 'CodingWithMitch Team <noreply@codingwithmitch.com>'
+
+django_heroku.settings(locals())
