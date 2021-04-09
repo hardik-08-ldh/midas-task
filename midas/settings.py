@@ -18,20 +18,15 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+# decouple used so secret _key protected
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definition , various apps required for application
 
 INSTALLED_APPS = [
     'crispy_forms',
@@ -44,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# django crispy form tmplate is bootstrap
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
+# middleware functionality like csrf token whitenoise middleware for static files 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -59,6 +56,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'midas.urls'
 
+# templates directory defined 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -80,16 +78,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'midas.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+# database backend given psycopg2 for deployment
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2'
-        #  'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# database credentials added postgresql
 DATABASES['default']=dj_database_url.config(default='postgres://eqxqnhjqnlnkwl:316b9a993cca5dd073e1456f33426c01b75f3a002eb2a142690286a85812b9b0@ec2-3-233-43-103.compute-1.amazonaws.com:5432/d9dht3vgo3pb17')
 db_from_env=dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
@@ -130,20 +126,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# Static url and directory defined
 STATIC_URL = '/static/'
 
 STATIC_FILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
 ]
+
+# media for dynamic images addition
 MEDIA_URL='/media/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+# Login and logout redirect urls 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL='home'
 
+# to store static files on server
 STATIC_FILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Email adjustments for reset password functionality
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'midaslabsiiitd@gmail.com'
