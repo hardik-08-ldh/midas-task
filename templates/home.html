@@ -1,25 +1,440 @@
-{% extends 'base.html' %}
-{% block title %}
-  Home
-{% endblock title %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block content %}
-    {% if user.is_authenticated %}
-    <h1>Hi! {{user.username}}</h1>
-    <br>
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <br>
-    <a href="{% url 'login' %}">Login</a>
-    <br>
-    <p>
-        Don't have an account. Sign Up instead.
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>MIDAS Labs | Home
+        
+    </title>
+    <style>
+    body{
+        background: url('{% static "users/images/background12.png" %}');
+        background-repeat: no-repeat;
+        background-size:100% 160%;
+        margin: 0;
+        padding: 0px;
+        
+      }
+    .grid{
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        display: inline-block grid;
+        height: 90%;
+        width: 100%;
+        
+    }    
+    .aligned{
+      position: relative;
+      top:500px;
+      left:15%;
+    }
+    .roundnew{
+      top :6px; left: 90px;
+      height: 500px;
+      width: 650px;
+      border-radius: 1% 15% 1% 15%;
+      margin: 0px;
+    }
+    #wrap{
+      height: 400px;
+      width:500px;
+      max-height: 420px;
+      max-width: 500px;
+      
+    }
+    .addedfunc{
+      position: absolute;
+      top:8px;
+      left:170px;
+      height: 400px;
+      width: 500px;
+    }
+    #blob{
+      position: absolute;
+      top:27px;
+      left:42%;
+      height: 680px;
+      width: 730px;
+      opacity: 65%;
+    }
+    .webtasks{
+      position: absolute;
+      top:150px;
+      left:55%;
+      height: 650px;
+      width: 700px;
+    }
+    .webtasksfont{
+      font-size: 70px;
+      line-height:70px;
+    }
+    .bnone{
+      border: none;
+    }
+    .spanclass{
+      border-radius: 2%;
+      padding:10px;
+      font-size: 13px;
+    }
+    .spanclass2{
+      padding-left: 40px;
+    }
+    .under:hover{
+      text-decoration:underline;
+    }
+    #text_block{
+      position: absolute;
+      padding-top: 430px;
+    }
+    .text{
+      padding-left: 80px;
+      padding-right: 80px;
+      font-size: 20px;
+    }
+    .text_style{
+      color: rgba(0,0,0,0.7);
+    }
+    #footer{
+      margin-top: 80px;
+      margin-bottom: -20px;
+      padding-right: 80px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-left: 80px;
+      bottom: 0%;
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .text_decor {
+      color:white;
+      
+      text-decoration: none;
+      
+      
+      display: inline-block;
+      
+      position: relative;
+    }
+    .text_decor:after {    
+      color: #fff;
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 1.8px;
+      left: 50%;
+      position: absolute;
+      background: #fff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+
+    .text_decor:hover{
+      color: #fff;
+    }
+    .text_decor:hover:after { 
+      color: #fff;
+      width: 100%; 
+      left: 0; 
+    }
+    #aboutus{
+      width:40%;
+    }
+    #aboutdeveloper{
+      width: 30%;
+      margin-left: 60%;
+      position: absolute;
+      bottom:0%;
+      margin-bottom: 100px;
+
+
+    }
+    #youtube{
+      font-size: 16px;
+    }
+    
+    .nb:hover{
+      color:#fff;
+    }
+    .input{
+      z-index: 1;
+    }
+    #summer{
+      padding-top: 150px;
+    }
+    #mymail{
+      color: rgba(255, 255, 255,0.8);
+      text-decoration: none;
+    }
+    #arrow{
+      position: absolute;
+      top : 89%;
+      left: 49.25%;
+      z-index: 2;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="bgimage">
+      <div class="grid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}" >
+              <img src="{% static 'users/images/download.jpg' %}" alt="" width="45" height="38" >
+              <b>
+                  Midas IIITD
+              </b>
+            </a>
+              <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active nb" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Home
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'home' %}">Home Page</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home' %}#{{'midas'}}">About Midas</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home' %}#{{'aboutdeveloper'}}">About Developer</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'home' %}#{{'summer'}}">Summer Internship</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text_decor nb" href="{% url 'papers' %}">Papers</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text_decor nb" href="{% url 'home' %}#{{'contacts'}}">Contacts</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+                      </ul>
+                    </li>
+                  {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link active text_decor nb" href="{% url 'login' %}">Login</a>
+                    </li>
+                  {% endif %}
+                </ul>
+                <form class="d-flex input">
+                  <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" id="searchbtn" type="submit" >Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </div>
+  <br>
+  <br>
+    <div class="container roundnew" id="wrap">
+      <div class="col-md-6">
+        <div id="carouselExampleIndicators" class="carousel slide roundnew" data-bs-ride="carousel">
+          <div class="carousel-indicators aligned">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner roundnew">
+            <div class="carousel-item active">
+              <img src="{% static 'users/images/w1.jpg' %}" class="d-block w-100 roundnew" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'users/images/unnamed.jpg' %}" class="d-block w-100 roundnew" alt="...">
+            </div>
+            <div class="carousel-item ">
+              <img src="{% static 'users/images/w3.jpg' %}" class="d-block w-100 roundnew" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="{% static 'users/images/blob.png' %}" id="blob" alt="">
+      <div class="card bg-transparent text-light webtasks bnone" id="webtask"style="width: 25rem;">
+        <div class="card-body">
+          <h2 class="card-title webtasksfont"><b>Web App Task</b></h2><br>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.<br><br></p>
+          
+          {% if not user.is_authenticated %}
+          <span class="border border-white spanclass rounded ">
+            <a href="{% url 'login' %}" class="text_decor">LOGIN </a> 
+            | 
+            <a href="{% url 'register' %}" class="text_decor"> SIGNUP</a> 
+          </span>
+          {% endif %}
+          <span class="spanclass2"> 
+            <a class="navbar-brand text-light" href="https://www.youtube.com/channel/UCPgCZNqUo3aaIfwtvXinAXw" id="youtube" >
+              <img src="{% static 'users/images/ynew1.png' %}" width="49" height="36" >Go To Youtube</a>
+            <!-- <a href="" class="text-light">
+              <img src="{% static 'users/images/button.png'%}" alt="" width="45" height="38">
+              Youtube</a>  -->
+          </span>
+         
+        </div>
+      </div>   
+    </div>
+    <a class="text-light" href="{% url 'home' %}#{{'text_block'}}" id="youtube" >
+      <img src="{% static 'users/images/arrow.png' %}" id="arrow" width="25" height="20" ></a>
+  </div>
+  
+  <div id="text_block" class="col-md-12" >
+    <div class="text" id="midas">
+      <h1>What is MIDAS ?</h1>
+      
+      <hr>
+      <b>MIDAS</b> is a group of researchers at IIIT-Delhi who study, analyze, and build different multimedia systems 
+      for society leveraging multimodal information. MIDAS stands for <b>Multimodal Digital Media Analysis Lab</b> and it is
+       founded by Dr. Rajiv Ratn Shah. Dr. Shah is an assistant professor in the Department of Computer Science and 
+       Engineering (jointly appointed with the Department of Human-Centered Design) at IIIT-Delhi. Our work at MIDAS 
+       includes Machine Learning, Multimedia Content Processing, Natural Language Processing, Image Processing, 
+       Multimodal Computing, Data Science, and Social Media Computing towards AI for Social Good. We believe in 
+       multidisciplinary collaborative research and work closely with eminent researchers from the National University 
+       of Singapore (NUS), Georgia Institute of Technology, The University of Texas at Austin, National Institute of 
+       Informatics (NII), Bloomberg, SLTI, and others.
+  
+    </div>
+    
+      <div class="text" id="summer">
+        <h1>Summer Internship</h1>
+        <hr>
+        <b>
+        MIDAS: Multimodal Digital Media Analysis Lab Summer Internship 2021.
+        </b>
+        We at MIDAS are hiring students from prefinal year of their graduation for SUMMER Internship. Screening process includes
+        some tasks to be completed within 10 days, a student can complete any of the four tasks given to them. All the requirements
+        have been added to the link below. Please read that document carefully. You need to submit your task <b>before 10th April Midnight </b>.
+        If you have any query the email ID of respective professors is also there in the link below so feel free to ask them.
+        After the tasks have been evaluated selected students will have an interview.
+        <br><br>
+        <b>
+          All the Best !!!.
+        </b>
+        <br><br>
+        {% if user.is_authenticated %}
+          <a href="https://docs.google.com/document/d/1WQHJ2KpImvA1l5QOkLQjaECOSKMiT3jp_UKH2p1zk_c/edit">View Task File</a>
+        {% else %}
+          <a href="{% url 'login' %}" >Login</a> to see the file link
+        {% endif %}
+
+      </div>
+    <footer id=footer>
+      <div id="contacts">
+        <p>
+        <h1>
+          Contact us :
+        </h1>
+        <hr>
+          <h4>
+            Mailing Address
+          </h4>
+          <p>
+            <b>
+              Office:
+             </b> 
+             A-415, Level 4, New Academic Building, IIIT-Delhi,<br>
+            Okhla Industrial Estate Phase 3, Near Govindpuri Metro Station,<br>
+            Delhi – 110020.
+          </p>
+          <a class="navbar-brand" href="tel:+911126907495">
+            <img src="{% static 'users/images/phone-icon.png'%}" alt="">
+          </a>
+      +91-11-26907495
         <br>
-        <a href="{% url 'register' %}">Sign Up</a>
-    </p>
+          <a class="navbar-brand" href="mailto: midas@iiitd.ac.in" >
+                <img src="{% static 'users/images/email-icon.png'%}" alt="">
+          </a>
+          midas@iiitd.ac.in</p>
+          
+          <h4><b>Social Media Links</b></h4>
+          <a class="navbar-brand" href="https://www.facebook.com/midasIIITD/" target="_blank" >
+            <img src="{% static 'users/images/fb-icon.png'%}" alt="">
+          </a>
+          <a class="navbar-brand" href="https://twitter.com/midasIIITD" target="_blank">
+            <img src="{% static 'users/images/twitter-icon.png'%}" alt="">
+          </a>
+          <a class="navbar-brand" href="https://www.linkedin.com/company/midasiiitd/" target="_blank">
+            <img src="{% static 'users/images/in-icon.png'%}" alt="">
+          </a>
+        </div>
+        <div id="aboutdeveloper">
+          <h2>About Developer :</h2><br>
+          <img src="{% static 'users/images/mail.png'%}" height="20" width="25"><a id='mymail' href=""> punjhardik2000@gmail.com</a>
+          <br><br>
+          <button class="btn btn-primary">Send Me An Email</button>
 
-    {% endif %}
-    <br>
-    <a href="{% url 'profile' %}">Profile Page</a>
+        </div>
+    </footer>
+  </div> 
+  
+  
+  <script>
+    var inp = document.getElementById('search');
+    var inpbtn=document.getElementById('searchbtn');
 
-{% endblock content %}
+    inpbtn.onclick=function(){
+      let x=inp.value
+      
+      if(x.localeCompare('contacts')==0){
+        window.location.href = "{% url 'home' %}#{{'contacts'}}";
+        
+      }
+      if(x.localeCompare('midas')==0){
+        window.location.href = "{% url 'home' %}#{{'midas'}}";
+      }
+      if(x.localeCompare('summer')==0){
+        window.location.href = "{% url 'home' %}#{{'summer'}}";
+      }
+      if(x.localeCompare('webtask')==0){
+        window.location.href = "{% url 'home' %}#{{'webtask'}}";
+      }
+    }
+  </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+
+    
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

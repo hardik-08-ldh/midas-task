@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import homeview
+from .views import homeview,papers
 from users.views import register,profile
 from django.contrib.auth import views as auth_views
 from django.conf import settings
@@ -28,7 +28,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('register/',register,name='register'),
     path('profile/', profile, name='profile'),
-    
+    path('papers/',papers.as_view(),name='papers'),
     
     path('password_change/done', auth_views.PasswordChangeDoneView.as_view(
         template_name='users/password_change_done.html'
@@ -54,3 +54,4 @@ urlpatterns = [
         ), name='password_reset_complete'),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
