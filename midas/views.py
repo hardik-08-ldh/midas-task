@@ -6,4 +6,5 @@ def homeview(request):
     return render(request,'home.html',{})
 # research papers section view
 class papers(TemplateView):
+        # html page name
         template_name = "papers.html"

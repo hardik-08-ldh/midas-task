@@ -1,101 +1,162 @@
+/* main body tag  */
 body{
-    background: url('/static/users/images/background12.png');
-    background-repeat: no-repeat;
-    background-size:100% 160%;
-    margin: 0;
-    padding: 0px;
-    zoom:90%;
+    /* given background image */
+        background: url('/static/users/images/background12.png');
+    /* background shuld not be repeated */
+        background-repeat: no-repeat;
+        background-size:100% 160%;
+    /* margin and padding */
+        margin: 0;
+        padding: 0px;
+    /* zoom of the image set */
+        zoom:90%;
   }
+
+/* navbar settings and adjustings */
 .grid{
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    /* margin from every side */
+        top: 0; right: 0; bottom: 0; left: 0;
     display: inline-block grid;
-    height: 90%;
-    width: 100%;
+    /* height and width set according to screen resolution */
+        height: 90%;
+        width: 100%;
     
-}    
+}
+
+/* search box at top was under blob image */
+.input{
+    z-index: 1;
+}
+
+/* this class is used for aligning the carousal indicators*/
 .aligned{
-  position: relative;
-  top:500px;
-  left:15%;
+    /* relative according to navbar */
+        position: relative;
+    /* alignment set */
+        top:500px;
+        left:15%;
 }
+
+/* this class is for aligning images and carousal and make images corners round */
 .roundnew{
-  top :6px; left: 85px;
-  height: 500px;
-  width: 650px;
-  border-radius: 1% 15% 1% 15%;
-  margin: 0px;
+    /* setting alignment */
+        top :6px; left: 85px;
+        height: 500px;
+        width: 650px;
+        margin: 0px;
+    /* for rounding corners */
+        border-radius: 1% 15% 1% 15%;
 }
+
+/* giving height and width for carousal section */
 #wrap{
   height: 400px;
   width:500px;
   max-height: 420px;
-  max-width: 500px;
-  
+  max-width: 500px; 
 }
-.addedfunc{
-  position: absolute;
-  top:8px;
-  left:170px;
-  height: 400px;
-  width: 500px;
-}
+
+/* setting up alignments for blob image */
 #blob{
   position: absolute;
   top:27px;
   left:42%;
   height: 680px;
   width: 730px;
-  opacity: 65%;
+  /* translucent so that carousal can be seen */
+    opacity: 65%;
 }
+
+/* div present inside the blob */
 .webtasks{
   position: absolute;
-  top:150px;
-  left:55%;
-  height: 650px;
-  width: 700px;
+  /* aligning and setting up height and width */
+    top:150px;
+    left:55%;
+    height: 650px;
+    width: 700px;
 }
+
+/* for changing the font inside the webtask div */
 .webtasksfont{
   font-size: 70px;
-  line-height:70px;
+  /* spaces between lines */
+    line-height:70px;
 }
+
+/* no border required for blob */
 .bnone{
   border: none;
 }
+
+/* login signup button */
 .spanclass{
-  border-radius: 2%;
+    /* changing border radius */
+        border-radius: 2%;
   padding:10px;
   font-size: 13px;
 }
+
+/* for go to youtube button */
 .spanclass2{
   padding-left: 40px;
 }
-.under:hover{
-  text-decoration:underline;
+
+/* youtube font size */
+#youtube{
+    font-size: 16px;
 }
+
+/* anchor tag hover color should be white */
+.nb:hover{
+    color:#fff;
+}
+
+/* down arrow on background */
+#arrow{
+    position: absolute;
+    top : 660px;
+    left: 49.25%;
+    /* above bgimage */
+    z-index: 2;
+  }
+  
+/* text block for (about midas) section */
 #text_block{
   position: absolute;
   padding-top: 430px;
 }
+
+/* setting up text inside midas section */
 .text{
   padding-left: 80px;
   padding-right: 80px;
   font-size: 20px;
 }
-.text_style{
-  color: rgba(0,0,0,0.7);
+
+/* summer intern section padding */
+#summer{
+    padding-top: 150px;
 }
+
+/* footer where contacts are there */
 #footer{
-  margin-top: 80px;
-  margin-bottom: -20px;
-  padding-right: 80px;
-  padding-top: 20px;
-  padding-bottom: 30px;
-  padding-left: 80px;
-  bottom: 0%;
-  color: white;
-  background-color: rgba(0,0,0,0.7);
+    /* alignments */
+        margin-top: 80px;
+        margin-bottom: -20px;
+        padding-right: 80px;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        padding-left: 80px;
+        bottom: 0%;
+    /* font-color */
+        color: white;
+    /* background color of footer */
+        background-color: rgba(0,0,0,0.7);
 }
+
+/* for anchor tags */
 .text_decor {
   color:white;
   
@@ -106,16 +167,20 @@ body{
   
   position: relative;
 }
+
+/* adding transition of underline on anchor tags */
 .text_decor:after {    
   color: #fff;
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
+  /* no content added */
   content: "";
   display: block;
   height: 1.8px;
   left: 50%;
   position: absolute;
   background: #fff;
+  /* transition in width for 0.3 sec  */
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
@@ -123,43 +188,29 @@ body{
 .text_decor:hover{
   color: #fff;
 }
+
 .text_decor:hover:after { 
   color: #fff;
   width: 100%; 
   left: 0; 
 }
+
+/* midas contact width set */
 #aboutus{
   width:40%;
 }
+
+/* developer contact set alignments */
 #aboutdeveloper{
   width: 30%;
   margin-left: 60%;
   position: absolute;
   bottom:0%;
   margin-bottom: 100px;
-
-
-}
-#youtube{
-  font-size: 16px;
 }
 
-.nb:hover{
-  color:#fff;
-}
-.input{
-  z-index: 1;
-}
-#summer{
-  padding-top: 150px;
-}
+/* send me an email section */
 #mymail{
-  color: rgba(255, 255, 255,0.8);
-  text-decoration: none;
-}
-#arrow{
-  position: absolute;
-  top : 660px;
-  left: 49.25%;
-  z-index: 2;
+    color: rgba(255, 255, 255,0.8);
+    text-decoration: none;
 }

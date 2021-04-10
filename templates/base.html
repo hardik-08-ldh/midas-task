@@ -31,8 +31,10 @@
     </style>
   </head>
   <body>
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
       <div class="container-fluid">
+        <!-- midas image top -->
         <a class="navbar-brand" href="{% url 'home' %}" >
           <img src="{% static 'users/images/download.jpg' %}" alt="" width="45" height="38" >
           <b>
@@ -45,6 +47,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- navbar dropdown for home -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Home
@@ -53,6 +56,7 @@
                   <li><a class="dropdown-item" href="{% url 'home' %}">Home Page</a></li>
                 </ul>
               </li>
+              <!-- dropdown for login /logout and password change -->
               {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -11,8 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+# for heroku deployment
 import django_heroku
+
+# for saving passwords from github public repo
 from decouple import config
+
+# to make changes in the postgres sql database
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -155,4 +160,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'IIITD Team <noreply@midasiiitdlabs.com>'
 
+# django heroku settings shifted to local file
 django_heroku.settings(locals())
