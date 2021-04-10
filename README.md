@@ -67,3 +67,16 @@ https://github.com/hardik-08-ldh/midas-task/blob/main/static/users/images/scr_2.
 https://github.com/hardik-08-ldh/midas-task/blob/main/static/users/images/scr_3.png
 
 https://github.com/hardik-08-ldh/midas-task/blob/main/static/users/images/scr_4.png
+
+
+## References
+
+https://docs.djangoproject.com/en/3.1/topics/auth/
+
+https://docs.djangoproject.com/en/3.1/topics/auth/default/
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
+
+https://www.w3schools.com/
+
+https://drive.google.com/file/d/1QtCQzFwC7LpUElp58gRCrvpZ7GpY-X5a/view
