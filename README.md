@@ -52,7 +52,7 @@
 
 **Developer email** - My email is also given at bottom
 
-**Search** - Search functionality also given in the website. We can search some text with keywords. These keywors are ['contacts','webtask','midas','summer']. After performing a search we have to clo]ick on home page link in Home dropdown of the b=navbar for multiple searches to be performed. This should be done again and again.
+**Search** - Search functionality also given in the website. We can search some text with keywords. These keywords are ['contacts','webtask','midas','summer']. After performing a search we have to clo]ick on home page link in Home dropdown of the b=navbar for multiple searches to be performed. This should be done again and again.
 
 **Youtube link** - A youtube link is also given that redirects  to the MIDAS-IIITD youtube page.
 
